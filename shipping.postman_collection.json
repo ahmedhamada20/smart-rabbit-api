@@ -330,6 +330,150 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "wallets",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcwMDQ2ODQyNSwiZXhwIjoxNzAwNDcyMDM1LCJuYmYiOjE3MDA0Njg0MzUsImp0aSI6IndhYWhwTjRoaEdoR2dOSmkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9R2b96rntifuravaX9Y8VT_0qad0sHzzVmtU3l1-Qvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/wallets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"wallets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorites",
+			"item": [
+				{
+					"name": "favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcwMDQ2ODQyNSwiZXhwIjoxNzAwNDcyMDM1LCJuYmYiOjE3MDA0Njg0MzUsImp0aSI6IndhYWhwTjRoaEdoR2dOSmkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9R2b96rntifuravaX9Y8VT_0qad0sHzzVmtU3l1-Qvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/favorites",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcwMDQ2ODQyNSwiZXhwIjoxNzAwNDcyMDM1LCJuYmYiOjE3MDA0Njg0MzUsImp0aSI6IndhYWhwTjRoaEdoR2dOSmkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9R2b96rntifuravaX9Y8VT_0qad0sHzzVmtU3l1-Qvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/favorites/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcwMDQ2ODQyNSwiZXhwIjoxNzAwNDcyMDM1LCJuYmYiOjE3MDA0Njg0MzUsImp0aSI6IndhYWhwTjRoaEdoR2dOSmkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9R2b96rntifuravaX9Y8VT_0qad0sHzzVmtU3l1-Qvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/favorites/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"favorites",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

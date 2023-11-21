@@ -29,7 +29,6 @@ class FavoriteController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
             'product_id' => 'required|exists:products,id',
         ]);
         if ($validator->fails()) {
