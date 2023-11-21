@@ -15,7 +15,7 @@ class FavoriteResources extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'user_id' => $this->user_id,
+            'user_id' => new UserResources($this->user),
             'product' => new ProductResources($this->product),
             'create_dates' => [
                 'created_at_human' => $this->created_at->diffForHumans(),

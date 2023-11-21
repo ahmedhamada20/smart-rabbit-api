@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResources;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,12 +30,15 @@ class AuthController extends Controller
         }
 
         $findUser = User::where('email',$request->email)->first();
-        if ($findUser->type == "admin"){
-            return response()->json([
-                'status' => 'error',
-                'message' => 'The User Not permission',
-            ], 401);
+        if($findUser){
+            if ($findUser->type == "admin"){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'The User Not permission',
+                ], 401);
+            }
         }
+
 
         $credentials = $request->only('email', 'password');
 
@@ -48,12 +52,13 @@ class AuthController extends Controller
 
         $user = Auth::guard('api')->user();
         return response()->json([
-            'status' => 'success',
-            'user' => $user,
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
-            ]
+            ],
+            'status' => 'success',
+            'user' => new UserResources($user),
+
         ]);
 
     }
@@ -108,7 +113,7 @@ class AuthController extends Controller
             ],
             'status' => 'success',
             'message' => 'User created successfully',
-            'user' => $user,
+            'user' => new UserResources($user),
 
         ]);
     }

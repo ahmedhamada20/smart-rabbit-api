@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(FavoriteSeeder::class);
+        $this->call(NotificationSeeder::class);
+        $this->call(WalletSeeder::class);
     }
 }
