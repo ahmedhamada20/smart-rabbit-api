@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('terms')->nullable()->comment('الشروط والاحكام');
             $table->text('photo')->nullable();
             $table->text('notes')->nullable();
+            $table->text('notes')->nullable();
+            $table->text('price_tax')->nullable();
             for ($i = 1 ; $i <= 5 ; $i++){
                 $table->text('notes'.$i)->nullable();
             }

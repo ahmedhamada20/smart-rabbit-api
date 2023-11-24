@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FavoriteController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SettingController;
@@ -63,6 +64,12 @@ Route::middleware(['auth:api'])->group(function () {
         Route::get('/', [FavoriteController::class, 'index']);
         Route::post('/store', [FavoriteController::class, 'store']);
         Route::post('/delete', [FavoriteController::class, 'delete']);
+    });
+
+    Route::prefix('orders')->group(function () {
+        Route::get('/', [OrderController::class, 'index']);
+        Route::post('/store', [OrderController::class, 'store']);
+        Route::post('/update', [OrderController::class, 'update']);
     });
 
 });

@@ -22,4 +22,22 @@ class Order extends Model
         'price_delivery',
         'price_tax',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class,'product_id');
+    }
+
+
+    public function payment_type()
+    {
+        return $this->belongsTo(PaymentType::class,'payment_type_id');
+    }
+
 }
