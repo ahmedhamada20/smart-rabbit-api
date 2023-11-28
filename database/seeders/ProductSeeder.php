@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
                 'photo' => fake()->imageUrl(),
                 'notes' => fake()->paragraph(),
                 'quantity' => fake()->randomElement([10, 20]),
+//                'weight' => fake()->randomElement([10, 20]),
                 'status' => fake()->randomElement(['active', 'inactive']),
             ]);
         }

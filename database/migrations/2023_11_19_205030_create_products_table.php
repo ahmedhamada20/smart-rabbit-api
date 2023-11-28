@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('photo');
             $table->string('notes');
             $table->string('quantity');
-            $table->string('weight')->comment('وزن المنتج');
-            $table->string('type_goods')->comment('نوع البضائع');
+//            $table->string('weight')->comment('وزن المنتج');
+//            $table->string('type_goods')->comment('نوع البضائع');
             $table->enum('status',['active','inactive']);
             for ($i = 1 ; $i <= 5 ; $i++){
                 $table->text('notes'.$i)->nullable();
