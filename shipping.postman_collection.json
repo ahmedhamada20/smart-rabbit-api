@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "24af4b3d-7a38-4284-a063-3628ebdcf287",
+		"_postman_id": "32e60358-be02-4715-a534-ff170d14c7a7",
 		"name": "shipping",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27873237",
-		"_collection_link": "https://interstellar-capsule-513179.postman.co/workspace/My-Workspace~e7e73eee-e08e-44bb-8a39-30b6d78df406/collection/27873237-24af4b3d-7a38-4284-a063-3628ebdcf287?action=share&source=collection_link&creator=27873237"
+		"_collection_link": "https://interstellar-capsule-513179.postman.co/workspace/My-Workspace~e7e73eee-e08e-44bb-8a39-30b6d78df406/collection/27873237-32e60358-be02-4715-a534-ff170d14c7a7?action=share&source=collection_link&creator=27873237"
 	},
 	"item": [
 		{
@@ -77,13 +77,15 @@
 									"key": "photo_person",
 									"description": "رخصه القياده",
 									"type": "file",
-									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-006-24 at 17.41.31.jpg"
+									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-006-24 at 17.41.31.jpg",
+									"disabled": true
 								},
 								{
 									"key": "photo_driving",
 									"description": "رخصه السياره",
 									"type": "file",
-									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-06-24 at 17.41.29.jpg"
+									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-06-24 at 17.41.29.jpg",
+									"disabled": true
 								},
 								{
 									"key": "password",
@@ -171,6 +173,224 @@
 							"path": [
 								"api",
 								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth driver",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmed@ahmed.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/driver/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"driver",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ahmed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@ahmed.com",
+									"type": "text"
+								},
+								{
+									"key": "type_user",
+									"value": "male",
+									"description": "in:male,female",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01111289180",
+									"type": "text"
+								},
+								{
+									"key": "photo_person",
+									"description": "رخصه القياده",
+									"type": "file",
+									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-006-24 at 17.41.31.jpg"
+								},
+								{
+									"key": "photo_driving",
+									"description": "رخصه السياره",
+									"type": "file",
+									"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-06-24 at 17.41.29.jpg"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone_tow",
+									"value": "",
+									"description": "رقم جوال اخر ان وجد",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "المدينة",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "",
+									"description": "الحي",
+									"type": "text"
+								},
+								{
+									"key": "street_name",
+									"value": "",
+									"description": "اسم الشارع",
+									"type": "text"
+								},
+								{
+									"key": "name_work",
+									"value": "",
+									"description": "اسم العمل",
+									"type": "text"
+								},
+								{
+									"key": "governorate",
+									"value": "",
+									"description": "المحافظه",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "الرمز البريدي",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/driver/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"driver",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA0NjgwNDcsImV4cCI6MTcwMDQ3MTY0NywibmJmIjoxNzAwNDY4MDQ3LCJqdGkiOiJaY0VoUnlHZUEwNWo3MVhMIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.trOOSZuQpwA1iJNIAJijAXNzqsJGosZaPwUT9s5BKPg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/driver/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"driver",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcwMDQ2ODQyNSwiZXhwIjoxNzAwNDcyMDM1LCJuYmYiOjE3MDA0Njg0MzUsImp0aSI6IndhYWhwTjRoaEdoR2dOSmkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.9R2b96rntifuravaX9Y8VT_0qad0sHzzVmtU3l1-Qvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/driver/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"driver",
 								"refresh"
 							]
 						}
@@ -468,6 +688,299 @@
 								"api",
 								"favorites",
 								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "orders Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders Users create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "",
+									"description": "null",
+									"type": "text"
+								},
+								{
+									"key": "payment_type_id",
+									"value": "",
+									"description": "exists:payment_types,id",
+									"type": "text"
+								},
+								{
+									"key": "delivery",
+									"value": "",
+									"description": "مدة التوصيل",
+									"type": "text"
+								},
+								{
+									"key": "price_delivery",
+									"value": "",
+									"description": "تكلفه التوصيل",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "",
+									"description": "وزن المنتج",
+									"type": "text"
+								},
+								{
+									"key": "type_goods",
+									"value": "",
+									"description": "نوع البضائع",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"description": "العدد",
+									"type": "text"
+								},
+								{
+									"key": "total",
+									"value": "",
+									"description": "سعر الاجمالي",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"description": "صور المنتج ان وجد",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "notes",
+									"value": "",
+									"description": "ملاحظات ان وجد",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "",
+									"description": "مكان lat",
+									"type": "text"
+								},
+								{
+									"key": "log",
+									"value": "",
+									"description": "مكان log",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/orders/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update assign driver",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/orders/driver/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"driver",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign driver Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "",
+									"description": "null",
+									"type": "text"
+								},
+								{
+									"key": "payment_type_id",
+									"value": "",
+									"description": "exists:payment_types,id",
+									"type": "text"
+								},
+								{
+									"key": "delivery",
+									"value": "",
+									"description": "مدة التوصيل",
+									"type": "text"
+								},
+								{
+									"key": "price_delivery",
+									"value": "",
+									"description": "تكلفه التوصيل",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "",
+									"description": "وزن المنتج",
+									"type": "text"
+								},
+								{
+									"key": "type_goods",
+									"value": "",
+									"description": "نوع البضائع",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"description": "العدد",
+									"type": "text"
+								},
+								{
+									"key": "total",
+									"value": "",
+									"description": "سعر الاجمالي",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"description": "صور المنتج ان وجد",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "notes",
+									"value": "",
+									"description": "ملاحظات ان وجد",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "",
+									"description": "مكان lat",
+									"type": "text"
+								},
+								{
+									"key": "log",
+									"value": "",
+									"description": "مكان log",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/orders/driver/assign",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"driver",
+								"assign"
 							]
 						}
 					},
