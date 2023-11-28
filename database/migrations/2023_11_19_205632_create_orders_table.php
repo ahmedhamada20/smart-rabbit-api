@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('qr_code');
             $table->string('order_code');
+            $table->foreignId('driver_id')->nullable()->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->nullable()->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('payment_type_id')->constrained('payment_types')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('total');
             $table->enum('status',['pending','accepted','waiting','cansel']);
@@ -23,6 +25,13 @@ return new class extends Migration
             $table->string('delivery')->nullable()->comment('مدة التوصيل');
             $table->string('price_delivery')->nullable()->comment('تكلفه التوصيل');
             $table->string('price_tax')->nullable()->comment('ضريبه التوصيل');
+            $table->string('weight')->comment('وزن المنتج');
+            $table->string('type_goods')->comment('نوع البضائع');
+            $table->string('quantity')->comment('العدد');
+            $table->string('photo')->comment('photo')->nullable();
+            $table->text('notes')->comment('notes')->nullable();
+            $table->text('lat')->comment('lat')->nullable();
+            $table->text('log')->comment('log')->nullable();
             $table->timestamps();
         });
     }

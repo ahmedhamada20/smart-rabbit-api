@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
+class AuthDriverController extends Controller
 {
     public function __construct()
     {
@@ -35,6 +35,16 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => 'error',
                     'message' => 'The User Not permission',
+                ], 401);
+            }
+        }
+
+        $checkStatus = User::where('email',$request->email)->first();
+        if ($checkStatus){
+            if ($checkStatus->status == "inactive"){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'The User Not Active please contact Admin',
                 ], 401);
             }
         }
@@ -72,9 +82,16 @@ class AuthController extends Controller
             'type_user' => 'required|in:male,female',
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|numeric|unique:users,phone',
+            'phone_tow' => 'nullable|numeric',
+            'city' => 'nullable|string',
+            'district' => 'nullable|string',
+            'street_name' => 'nullable|string',
+            'name_work' => 'nullable|string',
+            'governorate' => 'nullable|string',
+            'postal_code' => 'nullable|string',
             'password' => 'required|string|confirmed|min:6',
-//            'photo_person' => 'required|image',
-//            'photo_driving' => 'required|image',
+            'photo_person' => 'required|image',
+            'photo_driving' => 'required|image',
         ]);
 
         if ($validator->fails()) {
@@ -82,24 +99,33 @@ class AuthController extends Controller
             return response($validator->errors(), 422);
         }
 
-//        if ($request->hasFile('photo_person')) {
-//            $imageName = time() . '.' . $request->photo_person->extension();
-//            // Public Folder
-//            $files = $request->photo_person->move('images', $imageName);
-//        }
-//        if ($request->hasFile('photo_driving')) {
-//            $imageName = time() . '.' . $request->photo_driving->extension();
-//            // Public Folder
-//            $files2 = $request->photo_driving->move('images', $imageName);
-//        }
+        if ($request->hasFile('photo_person')) {
+            $imageName = time() . '.' . $request->photo_person->extension();
+            // Public Folder
+            $files = $request->photo_person->move('images', $imageName);
+        }
+        if ($request->hasFile('photo_driving')) {
+            $imageName = time() . '.' . $request->photo_driving->extension();
+            // Public Folder
+            $files2 = $request->photo_driving->move('images', $imageName);
+        }
 
         $user = User::create([
-            'type' => 'client',
-            'status' => 'active',
+            'type' => 'driver',
+            'status' => 'inactive',
             'type_user' => $request->type_user,
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
+            'street_name' => $request->street_name,
+            'city' => $request->city,
+            'district' => $request->district,
+            'governorate' => $request->governorate,
+            'phone_tow' => $request->phone_tow,
+            'name_work' => $request->name_work,
+            'postal_code' => $request->postal_code,
+            'photo_person' => $files,
+            'photo_driving' => $files2,
             'password' => Hash::make($request->password),
         ]);
 

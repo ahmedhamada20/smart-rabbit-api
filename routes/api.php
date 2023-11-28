@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AuthDriverController;
 use App\Http\Controllers\Api\FavoriteController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
@@ -22,6 +23,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(AuthController::class)->prefix('auth')->group(function () {
+    Route::post('login', 'login');
+    Route::post('register', 'register');
+    Route::post('logout', 'logout');
+    Route::post('refresh', 'refresh');
+});
+
+Route::controller(AuthDriverController::class)->prefix('auth/driver')->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
@@ -69,8 +77,16 @@ Route::middleware(['auth:api'])->group(function () {
     Route::prefix('orders')->group(function () {
         Route::get('/', [OrderController::class, 'index']);
         Route::post('/store', [OrderController::class, 'store']);
-        Route::post('/update', [OrderController::class, 'update']);
+
+        Route::prefix('driver')->group(function (){
+            Route::post('assign',[OrderController::class,'assign']);
+            Route::post('update',[OrderController::class,'update']);
+        });
     });
+
+
+
+
 
 });
 

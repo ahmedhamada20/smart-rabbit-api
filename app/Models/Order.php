@@ -10,18 +10,30 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
+        'qr_code',
         'order_code',
+        'driver_id',
         'user_id',
         'product_id',
-        'payment_type_id',
         'total',
         'status',
         'date',
         'delivery',
         'price_delivery',
-        'price_delivery',
         'price_tax',
+        'weight',
+        'type_goods',
+        'quantity',
+        'photo',
+        'notes',
+        'lat',
+        'log',
     ];
+
+    public function driver()
+    {
+        return $this->belongsTo(User::class,'driver_id');
+    }
 
     public function user()
     {

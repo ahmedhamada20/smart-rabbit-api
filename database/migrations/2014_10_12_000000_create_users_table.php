@@ -14,9 +14,16 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('type',['admin','customer','client']);
+            $table->enum('type',['admin','driver','client']);
             $table->enum('status',['active','inactive']);
             $table->string('phone');
+            $table->string('phone_tow')->nullable()->comment('رقم الهاتف بديل');
+            $table->string('name_work')->nullable()->comment('اسم العمل');
+            $table->string('postal_code')->nullable()->comment('الرمز البريدي');
+            $table->string('governorate')->nullable()->comment('المحافظه');
+            $table->string('city')->nullable()->comment('المدينة');
+            $table->string('district')->nullable()->comment('الحي');
+            $table->string('street_name')->nullable()->comment('اسم الشارع');
             $table->enum('type_user',['male','female']);
             $table->text('photo_person')->nullable()->comment('صوره الهويه');
             $table->text('photo_driving')->nullable()->comment('صوره الهويه');
