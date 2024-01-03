@@ -25,11 +25,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'type' => 'admin'])) {
+            $request->authenticate();
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } else {
+            return redirect()->back()->withErrors(['error' => 'This user does not have permission to access this page !!']);
+        }
     }
 
     /**

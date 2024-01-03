@@ -17,6 +17,15 @@ class DatabaseSeeder extends Seeder
 
 
         User::create([
+            'type' => 'admin',
+            'status' => 'active',
+            'type_user' => 'male',
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'phone' => fake()->unique()->phoneNumber(),
+            'password' => Hash::make(123456789),
+        ]);
+        User::create([
             'type' => 'client',
             'status' => 'active',
             'type_user' => 'male',

@@ -15,12 +15,18 @@ return new class extends Migration
             $table->id();
             $table->text('name')->nullable();
             $table->text('phone')->nullable();
+            $table->text('email')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('twitter')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('whatsapp')->nullable();
+            $table->text('commission')->nullable();
             $table->text('terms')->nullable()->comment('الشروط والاحكام');
             $table->text('photo')->nullable();
             $table->text('notes')->nullable();
             $table->text('price_tax')->nullable();
-            for ($i = 1 ; $i <= 5 ; $i++){
-                $table->text('notes'.$i)->nullable();
+            for ($i = 1 ; $i <= 6 ; $i++){
+                $table->text('notes_'.$i)->nullable();
             }
             $table->timestamps();
         });

@@ -23,11 +23,12 @@ class SettingSeeder extends Seeder
             'terms' => fake()->paragraph(),
             'photo' => fake()->imageUrl(),
             'notes' => fake()->paragraph(),
-            'notes1' => fake()->paragraph(),
-            'notes2' => fake()->paragraph(),
-            'notes3' => fake()->paragraph(),
-            'notes4' => fake()->paragraph(),
-            'notes5' => fake()->paragraph(),
+            'notes_1' => fake()->paragraph(),
+            'notes_2' => fake()->paragraph(),
+            'notes_3' => fake()->paragraph(),
+            'notes_4' => fake()->paragraph(),
+            'notes_5' => fake()->paragraph(),
+            'notes_6' => fake()->paragraph(),
         ]);
         Schema::enableForeignKeyConstraints();
     }
