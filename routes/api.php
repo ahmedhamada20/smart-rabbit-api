@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthDriverController;
 use App\Http\Controllers\Api\FavoriteController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ReportUserController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\WalletController;
@@ -64,6 +65,9 @@ Route::controller(ServiceController::class)->prefix('services')->group(function 
 
 Route::middleware(['auth:api'])->group(function () {
 
+    Route::prefix('report_user')->group(function (){
+        Route::get('/',[ReportUserController::class,'index']);
+    });
 
     Route::prefix('order_request')->group(function (){
         Route::get('/all', [OrderController::class, 'all']);
