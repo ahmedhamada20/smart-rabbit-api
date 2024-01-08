@@ -64,6 +64,14 @@ Route::controller(ServiceController::class)->prefix('services')->group(function 
 
 Route::middleware(['auth:api'])->group(function () {
 
+
+    Route::prefix('order_request')->group(function (){
+        Route::get('/all', [OrderController::class, 'all']);
+        Route::post('/order_request', [OrderController::class, 'order_request']);
+        Route::post('/assign', [OrderController::class, 'order_request_assign']);
+        Route::post('/update', [OrderController::class, 'update_request']);
+    });
+
     Route::prefix('wallets')->group(function () {
         Route::get('/', [WalletController::class, 'index']);
     });
