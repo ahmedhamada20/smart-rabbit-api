@@ -691,6 +691,245 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "shipping",
+			"item": [
+				{
+					"name": "get all shipping free",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA1OTg5NDUsImV4cCI6MTcwMDYwMjU0NSwibmJmIjoxNzAwNTk4OTQ1LCJqdGkiOiJhM2JpUGJEN1NYTXZPUjYzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yOxJwvQg1mAZSEMPiVzQG7fw1LhyLUSlKr_YtE1dtsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/order_request/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"order_request",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new shipping",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA1OTg5NDUsImV4cCI6MTcwMDYwMjU0NSwibmJmIjoxNzAwNTk4OTQ1LCJqdGkiOiJhM2JpUGJEN1NYTXZPUjYzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yOxJwvQg1mAZSEMPiVzQG7fw1LhyLUSlKr_YtE1dtsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sender_name",
+									"value": "",
+									"description": "اسم المرسل",
+									"type": "text"
+								},
+								{
+									"key": "sender_phone",
+									"value": "",
+									"description": "رق المرسل",
+									"type": "text"
+								},
+								{
+									"key": "sender_address",
+									"value": "",
+									"description": "عنوان المرسل",
+									"type": "text"
+								},
+								{
+									"key": "time_request",
+									"value": "",
+									"description": "الوقت (  'tomorrow',\n                'today',\n                'shortest_time',",
+									"type": "text"
+								},
+								{
+									"key": "receiver_name",
+									"value": "",
+									"description": "اسم المستقبل",
+									"type": "text"
+								},
+								{
+									"key": "receiver_phone",
+									"value": "",
+									"description": "رقم المستقبل",
+									"type": "text"
+								},
+								{
+									"key": "receiver_address",
+									"value": "",
+									"description": "عنوان المستقبل",
+									"type": "text"
+								},
+								{
+									"key": "total_price",
+									"value": "",
+									"description": "السعر",
+									"type": "text"
+								},
+								{
+									"key": "order_code",
+									"value": "",
+									"description": "مش لازم تتضاف ممكن يختارها ولا لاء",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/order_request/order_request",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"order_request",
+								"order_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign shipping in driver",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA1OTg5NDUsImV4cCI6MTcwMDYwMjU0NSwibmJmIjoxNzAwNTk4OTQ1LCJqdGkiOiJhM2JpUGJEN1NYTXZPUjYzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yOxJwvQg1mAZSEMPiVzQG7fw1LhyLUSlKr_YtE1dtsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/order_request/assign",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"order_request",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update shipping status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA1OTg5NDUsImV4cCI6MTcwMDYwMjU0NSwibmJmIjoxNzAwNTk4OTQ1LCJqdGkiOiJhM2JpUGJEN1NYTXZPUjYzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yOxJwvQg1mAZSEMPiVzQG7fw1LhyLUSlKr_YtE1dtsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "accepted,cansel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/order_request/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"order_request",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MDA1OTg5NDUsImV4cCI6MTcwMDYwMjU0NSwibmJmIjoxNzAwNTk4OTQ1LCJqdGkiOiJhM2JpUGJEN1NYTXZPUjYzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yOxJwvQg1mAZSEMPiVzQG7fw1LhyLUSlKr_YtE1dtsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/report_user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"report_user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
